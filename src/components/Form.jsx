@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "../index.css";
 
-const Form = () => {
+const Form = ({onAddItems}) => {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
+
 
   const handleSumbit = (e) => {
     e.preventDefault();
@@ -17,10 +18,11 @@ const Form = () => {
       id: Date.now(),
     };
 
-    console.log(newItem);
+    onAddItems(newItem)
 
-    
   };
+
+
 
   return (
     <form onSubmit={handleSumbit} className="add-form">
